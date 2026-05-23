@@ -1,0 +1,125 @@
+@use 'variables' as *;
+
+.container {
+  min-height: 100vh;
+  background: $bg;
+}
+
+.header {
+  background: $primary;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.logo {
+  color: $white;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.logoutBtn {
+  background: rgba(255, 255, 255, 0.15);
+  color: $white;
+  border: 1.5px solid rgba(255, 255, 255, 0.3);
+  padding: 0.5rem 1.2rem;
+  border-radius: $radius;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.content {
+  max-width: 640px;
+  margin: 2.5rem auto;
+  padding: 0 1rem;
+}
+
+.card {
+  background: $white;
+  border-radius: $radius;
+  box-shadow: $shadow;
+  padding: 2rem;
+}
+
+.cardTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: $gray-900;
+  padding-bottom: 1rem;
+  margin-bottom: 0.5rem;
+  border-bottom: 2px solid $gray-200;
+}
+
+.field {
+  display: flex;
+  align-items: center;
+  padding: 1rem 0;
+  border-bottom: 1px solid $gray-200;
+  gap: 1rem;
+
+  &:last-of-type {
+    border-bottom: none;
+  }
+}
+
+.fieldLabel {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: $gray-500;
+  min-width: 130px;
+}
+
+.fieldValue {
+  color: $gray-700;
+  font-size: 0.95rem;
+}
+
+.input {
+  padding: 0.5rem 0.75rem;
+  border: 1.5px solid $gray-200;
+  border-radius: $radius;
+  font-size: 0.95rem;
+  flex: 1;
+  transition: border-color $transition;
+
+  &:focus {
+    outline: none;
+    border-color: $primary;
+  }
+}
+
+.actions {
+  margin-top: 1.5rem;
+  display: flex;
+  gap: 0.75rem;
+}
+
+.editBtn {
+  padding: 0.6rem 1.4rem;
+  background: $primary;
+  color: $white;
+  border: none;
+  border-radius: $radius;
+  font-weight: 600;
+}
+
+.saveBtn {
+  padding: 0.6rem 1.4rem;
+  background: $success;
+  color: $white;
+  border: none;
+  border-radius: $radius;
+  font-weight: 600;
+}
+
+.cancelBtn {
+  padding: 0.6rem 1.4rem;
+  background: $gray-200;
+  color: $gray-700;
+  border: none;
+  border-radius: $radius;
+  font-weight: 600;
+}
