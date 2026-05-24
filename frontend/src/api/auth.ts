@@ -21,3 +21,15 @@ export const login = (email: string, password: string) =>
 export const getMe = () => api.get<User>('/me')
 
 export const updateMe = (name: string) => api.put<User>('/me', { name })
+
+export const changePassword = (currentPassword: string, newPassword: string) =>
+  api.put('/me/password', {
+    current_password: currentPassword,
+    new_password: newPassword,
+  })
+
+export const changeEmail = (newEmail: string, currentPassword: string) =>
+  api.put('/me/email', {
+    new_email: newEmail,
+    current_password: currentPassword,
+  })

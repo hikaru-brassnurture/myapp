@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { updateMe, type User } from '../api/auth'
 import styles from '../styles/Dashboard.module.scss'
 
@@ -9,6 +10,7 @@ interface Props {
 }
 
 export default function Dashboard({ user, onUpdate, onLogout }: Props) {
+  const navigate = useNavigate()
   const [editing, setEditing] = useState(false)
   const [name, setName] = useState(user.name)
   const [saving, setSaving] = useState(false)
@@ -63,6 +65,12 @@ export default function Dashboard({ user, onUpdate, onLogout }: Props) {
                 編集
               </button>
             )}
+            <button onClick={() => navigate('/change-password')} className={styles.linkBtn}>
+              パスワード変更
+            </button>
+            <button onClick={() => navigate('/change-email')} className={styles.linkBtn}>
+              メールアドレス変更
+            </button>
           </div>
         </div>
       </div>

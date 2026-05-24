@@ -47,6 +47,8 @@ func main() {
 		{
 			protected.GET("/me", userHandler.Me)
 			protected.PUT("/me", userHandler.UpdateMe)
+			protected.PUT("/me/password", userHandler.ChangePassword)
+			protected.PUT("/me/email", userHandler.ChangeEmail)
 		}
 	}
 

@@ -123,3 +123,19 @@
   border-radius: $radius;
   font-weight: 600;
 }
+
+.linkBtn {
+  padding: 0.5rem 1rem;
+  background: transparent;
+  color: $primary;
+  border: 1px solid $primary;
+  border-radius: $radius;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: $transition;
+
+  &:hover {
+    background: $primary;
+    color: $white;
+  }
+}
