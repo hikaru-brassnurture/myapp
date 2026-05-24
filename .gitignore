@@ -3,7 +3,7 @@ backend/myapp.db
 backend/*.db
 
 # Node
-frontend/node_modules/
+node_modules/
 frontend/dist/
 
 # 環境変数
