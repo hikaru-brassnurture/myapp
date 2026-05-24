@@ -29,7 +29,9 @@ export default function Dashboard({ user, onUpdate, onLogout }: Props) {
   return (
     <div className={styles.container}>
       <div className={styles.header}>
-        <h1 className={styles.logo}>MyApp</h1>
+        <h1 className={styles.logo} onClick={() => navigate('/')} style={{ cursor: 'pointer' }}>
+          MyApp
+        </h1>
         <button onClick={onLogout} className={styles.logoutBtn}>ログアウト</button>
       </div>
       <div className={styles.content}>

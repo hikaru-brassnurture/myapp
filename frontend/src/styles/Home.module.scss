@@ -1,0 +1,190 @@
+@use 'variables' as *;
+
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: $bg;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: $white;
+  box-shadow: $shadow;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: $primary;
+  cursor: pointer;
+}
+
+.headerButtons {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.loginBtn {
+  padding: 0.5rem 1rem;
+  background: transparent;
+  color: $primary;
+  border: 1px solid $primary;
+  border-radius: $radius;
+  cursor: pointer;
+  transition: $transition;
+
+  &:hover {
+    background: $primary;
+    color: $white;
+  }
+}
+
+.registerBtn {
+  padding: 0.5rem 1rem;
+  background: $primary;
+  color: $white;
+  border: none;
+  border-radius: $radius;
+  cursor: pointer;
+  transition: $transition;
+
+  &:hover {
+    opacity: 0.9;
+  }
+}
+
+.hero {
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.heroTitle {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: $primary;
+  margin-bottom: 1rem;
+}
+
+.heroText {
+  font-size: 1.125rem;
+  color: $gray-600;
+}
+
+.section {
+  padding: 3rem 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.sectionTitle {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: $primary;
+  margin-bottom: 1.5rem;
+}
+
+.skillList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.skillTag {
+  padding: 0.5rem 1rem;
+  background: $white;
+  border: 1px solid $primary;
+  color: $primary;
+  border-radius: 999px;
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+
+.workList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.workCard {
+  background: $white;
+  padding: 1.5rem;
+  border-radius: $radius;
+  box-shadow: $shadow;
+}
+
+.workTitle {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: $primary;
+  margin-bottom: 0.5rem;
+}
+
+.workDesc {
+  font-size: 0.875rem;
+  color: $gray-600;
+  margin-bottom: 0.75rem;
+}
+
+.workTech {
+  font-size: 0.75rem;
+  color: $gray-600;
+  background: $bg;
+  padding: 0.25rem 0.5rem;
+  border-radius: $radius;
+}
+
+.footer {
+  margin-top: auto;
+  text-align: center;
+  padding: 2rem;
+  color: $gray-600;
+  font-size: 0.875rem;
+}
+
+.skillTagActive {
+  background: $primary;
+  color: $white;
+}
+
+.clearBtn {
+  margin-top: 1rem;
+  padding: 0.4rem 0.75rem;
+  background: transparent;
+  color: $gray-600;
+  border: 1px solid $gray-300;
+  border-radius: $radius;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: $transition;
+
+  &:hover {
+    background: $bg;
+  }
+}
+
+.noResults {
+  color: $gray-600;
+  font-size: 0.875rem;
+}
+
+.workTechList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.skillCategory {
+  margin-bottom: 1.5rem;
+}
+
+.skillCategoryTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  color: $gray-600;
+  margin-bottom: 0.75rem;
+}

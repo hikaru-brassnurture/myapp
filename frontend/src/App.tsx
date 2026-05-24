@@ -5,6 +5,7 @@ import Register from './pages/Register'
 import Dashboard from './pages/Dashboard'
 import ChangePassword from './pages/ChangePassword'
 import ChangeEmail from './pages/ChangeEmail'
+import Home from './pages/Home'
 
 export default function App() {
   const { user, setUser, loading, logout } = useAuth()
@@ -15,6 +16,7 @@ export default function App() {
 
   return (
     <Routes>
+      <Route path="/" element={<Home />} />
       <Route path="/login" element={user ? <Navigate to="/dashboard" /> : <Login onLogin={setUser} />} />
       <Route path="/register" element={user ? <Navigate to="/dashboard" /> : <Register onLogin={setUser} />} />
       <Route path="/dashboard" element={user ? <Dashboard user={user} onUpdate={setUser} onLogout={logout} /> : <Navigate to="/login" />} />
