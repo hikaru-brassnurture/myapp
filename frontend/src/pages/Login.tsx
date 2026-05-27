@@ -1,34 +1,39 @@
-import { useState, type FormEvent } from 'react'
-import { useNavigate, Link } from 'react-router-dom'
-import { login, type User } from '../api/auth'
-import styles from '../styles/Login.module.scss'
+/**
+ * Login.tsx
+ * ログイン画面
+ */
+
+import { useState, type FormEvent } from 'react';
+import { useNavigate, Link } from 'react-router-dom';
+import { login, type User } from '../api/auth';
+import styles from '../styles/Login.module.scss';
 
 interface Props {
-  onLogin: (user: User) => void
+  onLogin: (user: User) => void;
 }
 
 export default function Login({ onLogin }: Props) {
-  const navigate = useNavigate()
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [error, setError] = useState('')
-  const [loading, setLoading] = useState(false)
+  const navigate = useNavigate();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e: FormEvent) => {
-    e.preventDefault()
-    setError('')
-    setLoading(true)
+    e.preventDefault();
+    setError('');
+    setLoading(true);
     try {
-      const res = await login(email, password)
-      localStorage.setItem('token', res.data.token)
-      onLogin(res.data.user)
-      navigate('/dashboard')
+      const res = await login(email, password);
+      localStorage.setItem('token', res.data.token);
+      onLogin(res.data.user);
+      navigate('/dashboard');
     } catch {
-      setError('メールアドレスまたはパスワードが違います')
+      setError('メールアドレスまたはパスワードが違います');
     } finally {
-      setLoading(false)
+      setLoading(false);
     }
-  }
+  };
 
   return (
     <div className={styles.container}>
@@ -39,11 +44,25 @@ export default function Login({ onLogin }: Props) {
         <form onSubmit={handleSubmit} className={styles.form}>
           <div className={styles.field}>
             <label className={styles.label}>メールアドレス</label>
-            <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required className={styles.input} placeholder="you@example.com" />
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              className={styles.input}
+              placeholder="you@example.com"
+            />
           </div>
           <div className={styles.field}>
             <label className={styles.label}>パスワード</label>
-            <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required className={styles.input} placeholder="••••••••" />
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+              className={styles.input}
+              placeholder="••••••••"
+            />
           </div>
           <button type="submit" disabled={loading} className={styles.button}>
             {loading ? 'ログイン中...' : 'ログイン'}
@@ -54,5 +73,5 @@ export default function Login({ onLogin }: Props) {
         </p>
       </div>
     </div>
-  )
+  );
 }

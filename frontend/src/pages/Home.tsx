@@ -1,3 +1,8 @@
+/**
+ * Home.tsx
+ * ホーム画面
+ */
+
 import { useState, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { works } from '../data/works';

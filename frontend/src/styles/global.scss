@@ -1,2 +1,8 @@
+/**
+ * global.scss
+ * サイト全体に適用するグローバルスタイル
+ * variables、resetを読み込み、共通スタイルを定義
+ */
+
 @use 'variables' as *;
 @use 'reset';
