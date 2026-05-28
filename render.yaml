@@ -1,0 +1,52 @@
+# render.yaml
+# Renderへのデプロイ設定ファイル
+
+services:
+  - type: web
+    name: myapp-backend
+    runtime: go
+    rootDir: backend
+    buildCommand: go build -o server ./cmd/server
+    startCommand: ./server
+    envVars:
+      - key: DB_DRIVER
+        value: postgres
+      - key: DB_HOST
+        fromDatabase:
+          name: myapp-db
+          property: host
+      - key: DB_USER
+        fromDatabase:
+          name: myapp-db
+          property: user
+      - key: DB_PASSWORD
+        fromDatabase:
+          name: myapp-db
+          property: password
+      - key: DB_NAME
+        fromDatabase:
+          name: myapp-db
+          property: database
+      - key: DB_PORT
+        fromDatabase:
+          name: myapp-db
+          property: port
+      - key: JWT_SECRET
+        generateValue: true
+
+  - type: web
+    name: myapp-frontend
+    runtime: static
+    rootDir: frontend
+    buildCommand: npm install && npm run build
+    staticPublishPath: dist
+    envVars:
+      - key: VITE_API_URL
+        fromService:
+          name: myapp-backend
+          type: web
+          property: host
+
+databases:
+  - name: myapp-db
+    plan: free
