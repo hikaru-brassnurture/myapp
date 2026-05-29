@@ -129,6 +129,9 @@ export default function Home() {
       <header className={styles.header}>
         <h1 className={styles.logo}>MyApp</h1>
         <div className={styles.headerButtons}>
+          <button onClick={() => navigate('/docs')} className={styles.loginBtn}>
+            仕様書
+          </button>
           <button
             onClick={() => navigate('/login')}
             className={styles.loginBtn}
